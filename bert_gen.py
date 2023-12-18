@@ -13,6 +13,7 @@ from text import cleaned_text_to_sequence, get_bert
 
 def process_line(line):
     device = config.bert_gen_config.device
+    print(torch.device("cpu"))
     if config.bert_gen_config.use_multi_device:
         rank = mp.current_process()._identity
         rank = rank[0] if len(rank) > 0 else 0
@@ -21,6 +22,7 @@ def process_line(line):
             device = torch.device(f"cuda:{gpu_id}")
         else:
             device = torch.device("cpu")
+
     wav_path, _, language_str, text, phones, tone, word2ph = line.strip().split("|")
     phone = phones.split(" ")
     tone = [int(i) for i in tone.split(" ")]

@@ -27,7 +27,6 @@ def get_bert(norm_text, word2ph, language, device):
     bert = lang_bert_func_map[language](norm_text, word2ph, device)
     return bert
 
-
 def check_bert_models():
     import json
     from pathlib import Path

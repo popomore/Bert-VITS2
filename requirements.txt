@@ -22,7 +22,8 @@ num2words
 PyYAML
 requests
 pyopenjtalk; sys_platform == 'linux'
-openjtalk; sys_platform != 'linux'
+pyopenjtalk; sys_platform == 'darwin'
+openjtalk; sys_platform == 'win32'
 jaconv
 psutil
 GPUtil
